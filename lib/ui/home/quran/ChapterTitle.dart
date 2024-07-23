@@ -33,17 +33,11 @@ class ChapterNumber extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.pushNamed(context, ChapterDetails.routeName,
-            arguments: ChapterNumberDetails(index, number));
-      },
-      child: Text("$number",
-          textAlign: TextAlign.end,
-          style: const TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.w400,
-          )),
-    );
+    return Text("$number",
+        textAlign: TextAlign.end,
+        style: const TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.w400,
+        ));
   }
 }
