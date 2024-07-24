@@ -97,9 +97,11 @@ class _SebhaState extends State<Sebha> with SingleTickerProviderStateMixin {
       if (num >= 34 && (Button2.text == 'سبحان الله')) {
         num = 0;
         Button2.text = 'الحمد لله';
-      } else if (Button2.text == 'الحمد لله') {
+      } else if (num >= 34 && Button2.text == 'الحمد لله') {
+        num = 0;
         Button2.text = 'الله أكبر';
-      } else {
+      } else if (num >= 34 && Button2.text == 'الله أكبر') {
+        num = 0;
         Button2.text = 'سبحان الله';
       }
     });
