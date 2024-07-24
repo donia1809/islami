@@ -6,14 +6,14 @@ class ChapterTitle extends StatelessWidget {
   String title;
   int index;
 
-  ChapterTitle(this.index, this.title, {super.key});
+  ChapterTitle(this.title, this.index, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, ChapterDetails.routeName,
-            arguments: ChapterDetailsArgument(index, title));
+            arguments: ChapterDetailsArgument(title, index));
       },
       child: Text(title,
           textAlign: TextAlign.end,
