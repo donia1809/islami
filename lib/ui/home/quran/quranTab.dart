@@ -8,6 +8,8 @@ import 'ContainerWidget.dart';
 ////////////////////////////////////////////////////
 
 class QuranTab extends StatefulWidget {
+  const QuranTab({super.key});
+
   @override
   State<QuranTab> createState() => _QuranTabState();
 }
@@ -255,7 +257,6 @@ class _QuranTabState extends State<QuranTab> {
 
   @override
   Widget build(BuildContext context) {
-    var combine = List.from(name)..addAll(number);
     return Padding(
       padding: const EdgeInsets.only(top: 80.0),
       child: Column(
@@ -269,7 +270,7 @@ class _QuranTabState extends State<QuranTab> {
               Container(
                 width: 3,
                 height: 30,
-                color: Color(0XFFB7935F),
+                color: const Color(0XFFB7935F),
               ),
               table("Chapter Name"),
             ],
@@ -278,7 +279,7 @@ class _QuranTabState extends State<QuranTab> {
           Expanded(
               child: ListView.separated(
             itemBuilder: (context, index) {
-              return ChapterTitle(index, name[index]);
+              return ChapterTitle(name[index], index);
             },
             itemCount: name.length,
             separatorBuilder: (context, index) {
@@ -288,19 +289,16 @@ class _QuranTabState extends State<QuranTab> {
             },
           )),
           Expanded(
-              child: Container(
-            alignment: Alignment.centerRight,
-            child: ListView.separated(
-              itemBuilder: (context, index) {
-                return ChapterNumber(index, number[index]);
-              },
-              itemCount: number.length,
-              separatorBuilder: (context, index) {
-                return const Padding(
-                  padding: EdgeInsets.only(left: 40, right: 40),
-                );
-              },
-            ),
+              child: ListView.separated(
+            itemBuilder: (context, index) {
+              return ChapterNumber(index, number[index]);
+            },
+            itemCount: number.length,
+            separatorBuilder: (context, index) {
+              return const Padding(
+                padding: EdgeInsets.only(left: 40, right: 40),
+              );
+            },
           )),
         ],
       ),
