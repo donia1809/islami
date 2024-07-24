@@ -4,7 +4,7 @@ class VerseContent extends StatelessWidget {
   String content;
   int index;
 
-  VerseContent(this.index, this.content, {super.key});
+  VerseContent(this.content, this.index, {super.key});
 
   @override
   Widget build(BuildContext context) {

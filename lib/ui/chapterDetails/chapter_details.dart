@@ -51,10 +51,7 @@ class _ChapterDetailsState extends State<ChapterDetails> {
             child: verses.isNotEmpty
                 ? ListView.separated(
                     itemBuilder: (context, index) {
-                      return VerseContent(
-                        index,
-                        verses[index],
-                      );
+                      return VerseContent(verses[index], index);
                     },
                     itemCount: verses.length,
                     separatorBuilder: (context, index) => Container(
@@ -86,7 +83,7 @@ class ChapterDetailsArgument {
   String chapterTitle;
   int chapterIndex;
 
-  ChapterDetailsArgument(this.chapterIndex, this.chapterTitle);
+  ChapterDetailsArgument(this.chapterTitle, this.chapterIndex);
 }
 
 ////////////////////////////////////////////////////
@@ -94,5 +91,6 @@ class ChapterDetailsArgument {
 class ChapterNumberDetails {
   int chapterIndex;
   int chapterNumber;
-  ChapterNumberDetails(this.chapterIndex, this.chapterNumber);
+
+  ChapterNumberDetails(this.chapterNumber, this.chapterIndex);
 }

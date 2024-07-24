@@ -279,7 +279,7 @@ class _QuranTabState extends State<QuranTab> {
           Expanded(
               child: ListView.separated(
             itemBuilder: (context, index) {
-              return ChapterTitle(index, name[index]);
+              return ChapterTitle(name[index], index);
             },
             itemCount: name.length,
             separatorBuilder: (context, index) {

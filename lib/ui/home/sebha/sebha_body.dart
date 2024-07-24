@@ -22,7 +22,7 @@ class _SebhaState extends State<Sebha> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
     controller = AnimationController(
-      duration: const Duration(milliseconds: 500),
+      duration: Duration(milliseconds: 500),
       vsync: this,
     );
     animation = Tween<double>(
@@ -34,12 +34,6 @@ class _SebhaState extends State<Sebha> with SingleTickerProviderStateMixin {
     controller.repeat();
   }
 
-  @override
-  void dispose() {
-    // Dispose of the animation controller when the widget is disposed
-    controller.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +78,7 @@ class _SebhaState extends State<Sebha> with SingleTickerProviderStateMixin {
             const SizedBox(
               height: 40,
             ),
-            Button2(),
+            const Button2(),
           ],
         ),
       ),
@@ -94,15 +88,24 @@ class _SebhaState extends State<Sebha> with SingleTickerProviderStateMixin {
   void incrementCount() {
     setState(() {
       num++;
-      if (num >= 34 && (Button2.text == 'سبحان الله')) {
+      if (num > 33 && (Button2.text == 'سبحان الله')) {
         num = 0;
         Button2.text = 'الحمد لله';
-      } else if (Button2.text == 'الحمد لله') {
+      } else if (num > 33 && Button2.text == 'الحمد لله') {
+        num = 0;
         Button2.text = 'الله أكبر';
-      } else {
+      } else if ((num > 33) && (Button2.text == 'الله أكبر')) {
+        num = 0;
         Button2.text = 'سبحان الله';
       }
     });
     controller.forward(from: 0);
+  }
+
+  @override
+  void dispose() {
+    // Dispose of the animation controller when the widget is disposed
+    controller.dispose();
+    super.dispose();
   }
 }
