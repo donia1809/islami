@@ -35,22 +35,10 @@ class _HomeScreenState extends State<HomeScreen> {
             });
           },
           items: [
-            BottomBarItem(
-                iconName: 'icon_quran.png',
-                title: 'Quran',
-                backgroundColor: Theme.of(context).colorScheme.primary),
-            BottomBarItem(
-                iconName: 'icon_hadith.png',
-                title: 'Hadith',
-                backgroundColor: Theme.of(context).colorScheme.primary),
-            BottomBarItem(
-                iconName: 'icon_sebha.png',
-                title: 'Sebha',
-                backgroundColor: Theme.of(context).colorScheme.primary),
-            BottomBarItem(
-                iconName: 'icon_radio.png',
-                title: 'Radio',
-                backgroundColor: Theme.of(context).colorScheme.primary),
+            BottomBarItem(iconName: 'icon_quran.png', title: 'Quran'),
+            BottomBarItem(iconName: 'icon_hadith.png', title: 'Hadith'),
+            BottomBarItem(iconName: 'icon_sebha.png', title: 'Sebha'),
+            BottomBarItem(iconName: 'icon_radio.png', title: 'Radio'),
           ],
         ),
         body: tab[selectedIndex],

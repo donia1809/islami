@@ -17,7 +17,7 @@ class HadithTitle extends StatelessWidget {
         },
         child: Text(
           hadith.title,
-          style: Theme.of(context).textTheme.titleMedium,
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400),
         ),
       ),
     );

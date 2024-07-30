@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 class TextName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return const Text(
       'Number of praises',
-      style: Theme.of(context).textTheme.titleMedium,
+      style: TextStyle(
+          color: Colors.black, fontSize: 25, fontWeight: FontWeight.w600),
     );
   }
 }

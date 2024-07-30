@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class table extends StatelessWidget {
   String text;
@@ -9,7 +9,10 @@ class table extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: Theme.of(context).textTheme.titleMedium,
+      style: const TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.w600,
+          fontFamily: 'ElMessiri-SemiBold.ttf'),
     );
   }
 }
