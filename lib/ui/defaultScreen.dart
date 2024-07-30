@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:islami/main.dart';
 
 import 'imagePath.dart';
-
 class DefaultScreen extends StatelessWidget {
   Widget body;
 
@@ -17,7 +16,7 @@ class DefaultScreen extends StatelessWidget {
         Scaffold(
           appBar: AppBar(
             title: Text(
-              'Islami',
+              appTranslations(context).appTitle,
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),

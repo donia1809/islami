@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/ui/HadithDetails/Hadith_Details.dart';
 import 'package:islami/ui/chapterDetails/chapter_details.dart';
 import 'package:islami/ui/home/homeScreen.dart';
 import 'package:islami/ui/splash/splashScreen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -28,16 +29,9 @@ class MyApp extends StatelessWidget {
         ChapterDetails.routeName: (context) => ChapterDetails(),
         HadithDetailsScreen.routeName: (context) => HadithDetailsScreen(),
       },
-
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: [
-        Locale('en'), // English
-        Locale('es'), // Spanish
-      ],
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale('en'),
     );
   }
 }
