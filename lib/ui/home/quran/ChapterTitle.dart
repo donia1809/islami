@@ -17,10 +17,8 @@ class ChapterTitle extends StatelessWidget {
       },
       child: Text(title,
           textAlign: TextAlign.end,
-          style: const TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.w400,
-          )),
+        style: Theme.of(context).textTheme.titleMedium,
+      ),
     );
   }
 }
@@ -35,9 +33,7 @@ class ChapterNumber extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text("$number",
         textAlign: TextAlign.end,
-        style: const TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.w400,
-        ));
+      style: Theme.of(context).textTheme.titleMedium,
+    );
   }
 }

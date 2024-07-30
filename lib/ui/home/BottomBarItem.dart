@@ -5,10 +5,15 @@ import '../imagePath.dart';
 class BottomBarItem extends BottomNavigationBarItem {
   String title;
   String iconName;
+  Color backgroundColor;
 
-  BottomBarItem({required this.title, required this.iconName})
+  BottomBarItem(
+      {required this.title,
+      required this.iconName,
+      required this.backgroundColor})
       : super(
             icon: ImageIcon(AssetImage(getImagePath(iconName))),
             label: title,
-            backgroundColor: const Color(0XFFB7935F));
+          backgroundColor: backgroundColor,
+        );
 }
