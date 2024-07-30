@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:islami/ui/HadithDetails/Hadith_Details.dart';
 import 'package:islami/ui/chapterDetails/chapter_details.dart';
 import 'package:islami/ui/home/homeScreen.dart';
@@ -29,15 +28,6 @@ class MyApp extends StatelessWidget {
         HadithDetailsScreen.routeName: (context) => HadithDetailsScreen(),
       },
 
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: [
-        Locale('en'), // English
-        Locale('es'), // Spanish
-      ],
     );
   }
 }
