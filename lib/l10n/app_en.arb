@@ -1,2 +1,12 @@
 {
+  "appTitle": "Islami",
+  "chapterTitle": "Chapter Title",
+  "chapterNumber": "Chapter Number",
+  "quranTap": "Quran",
+  "hadithTap": "Hadith",
+  "radioTap": "Radio",
+  "tasbehTap": "Sebha",
+  "hadithTitle": "Ahadith",
+  "hadithNumber": "Hadith Number",
+  "numberOfPraises": "Number of praises"
 }

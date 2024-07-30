@@ -266,13 +266,17 @@ class _QuranTabState extends State<QuranTab> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              table("Chapter Number"),
+              table(
+                appTranslations(context).chapterNumber,
+              ),
               Container(
                 width: 3,
                 height: 50,
                 color: const Color(0XFFB7935F),
               ),
-              table("Chapter Name"),
+              table(
+                appTranslations(context).chapterTitle,
+              ),
             ],
           ),
           const ContainerWidget(),

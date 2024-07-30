@@ -3,6 +3,7 @@ import 'package:islami/ui/home/hadith/hadithTap.dart';
 import 'package:islami/ui/home/quran/quranTab.dart';
 import 'package:islami/ui/home/radio/radioTab.dart';
 import 'package:islami/ui/home/sebha/tasbehTab.dart';
+import 'package:islami/ui/imagePath.dart';
 
 import '../defaultScreen.dart';
 import 'BottomBarItem.dart';
@@ -37,19 +38,19 @@ class _HomeScreenState extends State<HomeScreen> {
           items: [
             BottomBarItem(
                 iconName: 'icon_quran.png',
-                title: 'Quran',
+                title: appTranslations(context).quranTap,
                 backgroundColor: Theme.of(context).colorScheme.primary),
             BottomBarItem(
                 iconName: 'icon_hadith.png',
-                title: 'Hadith',
+                title: appTranslations(context).hadithTap,
                 backgroundColor: Theme.of(context).colorScheme.primary),
             BottomBarItem(
                 iconName: 'icon_sebha.png',
-                title: 'Sebha',
+                title: appTranslations(context).tasbehTap,
                 backgroundColor: Theme.of(context).colorScheme.primary),
             BottomBarItem(
                 iconName: 'icon_radio.png',
-                title: 'Radio',
+                title: appTranslations(context).radioTap,
                 backgroundColor: Theme.of(context).colorScheme.primary),
           ],
         ),
