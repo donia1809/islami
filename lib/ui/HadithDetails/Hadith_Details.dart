@@ -22,7 +22,10 @@ class HadithDetailsScreen extends StatelessWidget {
             child: SingleChildScrollView(
               child: Text(
                 hadith.title,
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w400),
               ),
             ),
           ),
@@ -34,7 +37,7 @@ class HadithDetailsScreen extends StatelessWidget {
             child: (Text(
               hadith.content,
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodySmall,
+              style: TextStyle(fontSize: 20, color: Colors.black),
             )),
           )
         ]),

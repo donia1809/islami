@@ -13,8 +13,10 @@ class VerseContent extends StatelessWidget {
       child: Text('$content {${index + 1} }',
           textDirection: TextDirection.rtl,
           textAlign: TextAlign.end,
-        style: Theme.of(context).textTheme.bodySmall,
-      ),
+          style: const TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.w400,
+          )),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../main.dart';
 import '../../imagePath.dart';
 import 'button2.dart';
 import 'const_text.dart';
@@ -44,8 +43,6 @@ class _SebhaState extends State<Sebha> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    bool isDark = MyThemeData.isDark;
-
     return Padding(
       padding: const EdgeInsets.only(top: 150, left: 100, right: 90),
       child: Center(
@@ -56,16 +53,14 @@ class _SebhaState extends State<Sebha> with SingleTickerProviderStateMixin {
               RotationTransition(
                 turns: animation,
                 child: Image.asset(
-                  getImagePath(
-                      isDark ? 'body_sebha_dark.png' : 'body_sebha_logo.png'),
+                  getImagePath('body_sebha_logo.png'),
                 ),
               ),
               Transform.translate(
                 offset: Offset(0, -75),
                 child: Image.asset(
-                  getImagePath(isDark
-                      ? 'head_sebha_dark.png'
-                      : 'head_sebha_logo.png'), //alignment: Alignment.topCenter
+                  getImagePath(
+                      'head_sebha_logo.png'), //alignment: Alignment.topCenter
                 ),
               ),
             ]),

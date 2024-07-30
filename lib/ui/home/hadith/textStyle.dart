@@ -5,7 +5,10 @@ class TextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       'Ahadith',
-      style: Theme.of(context).textTheme.titleMedium,
+      style: const TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.w600,
+          fontFamily: 'ElMessiri-SemiBold.ttf'),
     );
   }
 }
