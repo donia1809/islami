@@ -269,7 +269,7 @@ class _QuranTabState extends State<QuranTab> {
               table("Chapter Number"),
               Container(
                 width: 3,
-                height: 30,
+                height: 50,
                 color: const Color(0XFFB7935F),
               ),
               table("Chapter Name"),
@@ -284,22 +284,24 @@ class _QuranTabState extends State<QuranTab> {
             itemCount: name.length,
             separatorBuilder: (context, index) {
               return const Padding(
-                padding: EdgeInsets.only(left: 40, right: 40),
+                padding: EdgeInsets.symmetric(horizontal: 50.0),
+                child: ContainerWidget(),
               );
             },
           )),
-          Expanded(
-              child: ListView.separated(
-            itemBuilder: (context, index) {
-              return ChapterNumber(index, number[index]);
-            },
-            itemCount: number.length,
-            separatorBuilder: (context, index) {
-              return const Padding(
-                padding: EdgeInsets.only(left: 40, right: 40),
-              );
-            },
-          )),
+          // Expanded(
+          //     child: ListView.separated(
+          //   itemBuilder: (context, index) {
+          //     return ChapterNumber(index, number[index]);
+          //   },
+          //   itemCount: number.length,
+          //   separatorBuilder: (context, index) {
+          //     return const Padding(
+          //       padding:  EdgeInsets.symmetric(horizontal: 50.0),
+          //       child: ContainerWidget(),
+          //     );
+          //   },
+          // )),
         ],
       ),
     );

@@ -29,7 +29,13 @@ class _HadithTabState extends State<HadithTab> {
           children: [
             Image.asset(getImagePath('hadith_logo.png')),
             const ContainerWidget(),
+            SizedBox(
+              height: 5,
+            ),
             TextWidget(),
+            SizedBox(
+              height: 5,
+            ),
             const ContainerWidget(),
             Expanded(
               child: allHadith.isNotEmpty
