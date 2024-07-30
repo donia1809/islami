@@ -37,10 +37,7 @@ class _ChapterDetailsState extends State<ChapterDetails> {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               argument.chapterTitle,
-              style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 30,
-                  fontWeight: FontWeight.w400),
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
           const Padding(
@@ -69,7 +66,7 @@ class _ChapterDetailsState extends State<ChapterDetails> {
 
   void readFileData(int fileIndex) async {
     String fileContent =
-        await rootBundle.loadString('assets/files${fileIndex + 1}.txt');
+        await rootBundle.loadString('assets/Files/${fileIndex + 1}.txt');
     List<String> lines = fileContent.trim().split('\n');
     setState(() {
       verses = lines;

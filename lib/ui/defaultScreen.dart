@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami/main.dart';
 
 import 'imagePath.dart';
 
@@ -9,12 +10,16 @@ class DefaultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDark = MyThemeData.isDark;
     return Stack(
       children: [
-        Image.asset(getImagePath('default_bg.png')),
+        Image.asset(getImagePath(isDark ? 'dark_bg.png' : 'default_bg.png')),
         Scaffold(
           appBar: AppBar(
-            title: const Text('Islami'),
+            title: Text(
+              'Islami',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
           ),
         ),
         body,
