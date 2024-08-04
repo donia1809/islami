@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../../main.dart';
 import '../home/homeScreen.dart';
+import '../home/providers/ThemeProvider.dart';
 import '../imagePath.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -11,7 +12,8 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isDark = MyThemeData.isDark;
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+    bool isDark = themeProvider.isDark();
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushReplacementNamed(context, HomeScreen.routeName);
     });
