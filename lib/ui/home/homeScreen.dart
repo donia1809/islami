@@ -3,6 +3,7 @@ import 'package:islami/ui/home/hadith/hadithTap.dart';
 import 'package:islami/ui/home/quran/quranTab.dart';
 import 'package:islami/ui/home/radio/radioTab.dart';
 import 'package:islami/ui/home/sebha/tasbehTab.dart';
+import 'package:islami/ui/home/settings/settingsTap.dart';
 import 'package:islami/ui/imagePath.dart';
 
 import '../defaultScreen.dart';
@@ -22,7 +23,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
 
-  var tab = [QuranTab(), HadithTab(), TasbehTab(), RadioTab()];
+  var tab = [QuranTab(), HadithTab(), TasbehTab(), RadioTab(), SettingsTap()];
 
   @override
   Widget build(BuildContext context) {
@@ -37,21 +38,28 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           items: [
             BottomBarItem(
-                iconName: 'icon_quran.png',
-                title: appTranslations(context).quranTap,
-                backgroundColor: Theme.of(context).colorScheme.primary),
+              appTranslations(context).quranTap,
+              Theme.of(context).colorScheme.primary,
+              iconpath: 'icon_quran.png',
+            ),
             BottomBarItem(
-                iconName: 'icon_hadith.png',
-                title: appTranslations(context).hadithTap,
-                backgroundColor: Theme.of(context).colorScheme.primary),
+              appTranslations(context).hadithTap,
+              Theme.of(context).colorScheme.primary,
+              iconpath: 'icon_hadith.png',
+            ),
             BottomBarItem(
-                iconName: 'icon_sebha.png',
-                title: appTranslations(context).tasbehTap,
-                backgroundColor: Theme.of(context).colorScheme.primary),
+              appTranslations(context).tasbehTap,
+              Theme.of(context).colorScheme.primary,
+              iconpath: 'icon_sebha.png',
+            ),
             BottomBarItem(
-                iconName: 'icon_radio.png',
-                title: appTranslations(context).radioTap,
-                backgroundColor: Theme.of(context).colorScheme.primary),
+              appTranslations(context).radioTap,
+              Theme.of(context).colorScheme.primary,
+              iconpath: 'icon_radio.png',
+            ),
+            BottomBarItem(appTranslations(context).settings,
+                Theme.of(context).colorScheme.primary,
+                mainIcon: const Icon(Icons.settings)),
           ],
         ),
         body: tab[selectedIndex],

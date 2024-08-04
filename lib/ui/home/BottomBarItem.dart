@@ -3,17 +3,16 @@ import 'package:flutter/material.dart';
 import '../imagePath.dart';
 
 class BottomBarItem extends BottomNavigationBarItem {
-  String title;
-  String iconName;
-  Color backgroundColor;
 
-  BottomBarItem(
-      {required this.title,
-      required this.iconName,
-      required this.backgroundColor})
+  BottomBarItem(String title,
+      Color backgroundColor,
+      {String? iconpath,
+        Icon? mainIcon = null})
       : super(
-            icon: ImageIcon(AssetImage(getImagePath(iconName))),
-            label: title,
+          icon: mainIcon != null
+              ? mainIcon
+              : ImageIcon(AssetImage(getImagePath(iconpath!))),
+          label: title,
           backgroundColor: backgroundColor,
         );
 }

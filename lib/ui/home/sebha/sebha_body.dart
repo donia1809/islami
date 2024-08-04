@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../../../main.dart';
 import '../../imagePath.dart';
+import '../providers/ThemeProvider.dart';
 import 'button2.dart';
 import 'const_text.dart';
 
@@ -12,40 +13,15 @@ class Sebha extends StatefulWidget {
   State<Sebha> createState() => _SebhaState();
 }
 
-class _SebhaState extends State<Sebha> with SingleTickerProviderStateMixin {
-  late AnimationController controller;
-  late Animation<double> animation;
-  double rotationValue = 0;
+class _SebhaState extends State<Sebha> {
   int num = 0;
   String text = 'سبحان الله';
-
-  @override
-  void initState() {
-    super.initState();
-    controller = AnimationController(
-      duration: const Duration(milliseconds: 500),
-      vsync: this,
-    );
-    animation = Tween<double>(
-      begin: 0, // Start rotation angle
-      end: 1, // End rotation angle
-    ).animate(controller);
-
-    // Repeat the animation indefinitely
-    controller.repeat();
-  }
-
-  @override
-  void dispose() {
-    // Dispose of the animation controller when the widget is disposed
-    controller.dispose();
-    super.dispose();
-  }
+  double rotateAngle = 0;
 
   @override
   Widget build(BuildContext context) {
-    bool isDark = MyThemeData.isDark;
-
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+    bool isDark = themeProvider.isDark();
     return Padding(
       padding: const EdgeInsets.only(top: 150, left: 100, right: 90),
       child: Center(
@@ -53,8 +29,8 @@ class _SebhaState extends State<Sebha> with SingleTickerProviderStateMixin {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Stack(alignment: Alignment.topCenter, children: [
-              RotationTransition(
-                turns: animation,
+              Transform.rotate(
+                angle: rotateAngle,
                 child: Image.asset(
                   getImagePath(
                       isDark ? 'body_sebha_dark.png' : 'body_sebha_logo.png'),
@@ -78,7 +54,7 @@ class _SebhaState extends State<Sebha> with SingleTickerProviderStateMixin {
             ),
             RawMaterialButton(
                 onPressed: incrementCount,
-                fillColor: const Color(0XFFB7925F),
+                fillColor: Color(0XFFB7925F).withOpacity(0.57),
                 shape: const StadiumBorder(),
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -99,6 +75,7 @@ class _SebhaState extends State<Sebha> with SingleTickerProviderStateMixin {
   void incrementCount() {
     setState(() {
       num++;
+      rotateAngle += 8;
       if (num >= 34 && (Button2.text == 'سبحان الله')) {
         num = 0;
         Button2.text = 'الحمد لله';
@@ -110,6 +87,5 @@ class _SebhaState extends State<Sebha> with SingleTickerProviderStateMixin {
         Button2.text = 'سبحان الله';
       }
     });
-    controller.forward(from: 0);
   }
 }
