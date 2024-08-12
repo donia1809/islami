@@ -8,5 +8,12 @@
   "tasbehTap": "Sebha",
   "hadithTitle": "Ahadith",
   "hadithNumber": "Hadith Number",
-  "numberOfPraises": "Number of praises"
+  "numberOfPraises": "Number of praises",
+  "settings": "Settings",
+  "theme": "Theme",
+  "language": "Language",
+  "light": "Light",
+  "dark": "Dark",
+  "english": "English",
+  "arabic": "Arabic"
 }

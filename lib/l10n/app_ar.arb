@@ -8,5 +8,12 @@
   "tasbehTap": "سبحة",
   "hadithTitle": "إسم الحديث",
   "hadithNumber": "رقم الحديث",
-  "numberOfPraises": "عدد التسبيحات"
+  "numberOfPraises": "عدد التسبيحات",
+  "settings": "الإعدادات",
+  "theme": "المظهر",
+  "language": "اللغة",
+  "light": "نهاري",
+  "dark": "ليلي",
+  "english": "الانجليزية",
+  "arabic": "العربية"
 }

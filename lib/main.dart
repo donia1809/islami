@@ -3,10 +3,19 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/ui/HadithDetails/Hadith_Details.dart';
 import 'package:islami/ui/chapterDetails/chapter_details.dart';
 import 'package:islami/ui/home/homeScreen.dart';
+import 'package:islami/ui/home/providers/ThemeProvider.dart';
+import 'package:islami/ui/home/providers/localeProvider.dart';
 import 'package:islami/ui/splash/splashScreen.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  var sharedPreference = await SharedPreferences.getInstance();
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (_) => ThemeProvider(sharedPreference)),
+    ChangeNotifierProvider(create: (_) => LocaleProvider(sharedPreference)),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,9 +26,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+    LocaleProvider localeProvider = Provider.of<LocaleProvider>(context);
+
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-      theme: MyThemeData.darkTheme,
+      debugShowCheckedModeBanner: false,
+      theme: MyThemeData.lightTheme,
+      darkTheme: MyThemeData.darkTheme,
+      themeMode: themeProvider.currentTheme,
 
       ////////////////Routes///////////////
       initialRoute: SplashScreen.routeName,
@@ -31,7 +45,7 @@ class MyApp extends StatelessWidget {
       },
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: Locale('en'),
+      locale: Locale(localeProvider.currentLocale),
     );
   }
 }
@@ -41,7 +55,6 @@ class MyThemeData {
   static const Color lightPrimary = Color(0XFFB7935F);
   static const Color darkPrimary = Color(0XFF141A2E);
   static const Color darkSecondary = Color(0XFFFACC1D);
-  static bool isDark = true;
   static final ThemeData lightTheme = ThemeData(
       scaffoldBackgroundColor: Colors.transparent,
       ////////app bar theme
@@ -56,6 +69,7 @@ class MyThemeData {
         seedColor: lightPrimary,
         primary: lightPrimary,
         onPrimary: Colors.white,
+        secondary: lightPrimary,
       ),
       ////////bottom bar theme
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
