@@ -7,11 +7,14 @@ import 'package:islami/ui/home/providers/ThemeProvider.dart';
 import 'package:islami/ui/home/providers/localeProvider.dart';
 import 'package:islami/ui/splash/splashScreen.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  var sharedPreference = await SharedPreferences.getInstance();
   runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create: (_) => ThemeProvider()),
-    ChangeNotifierProvider(create: (_) => LocaleProvider()),
+    ChangeNotifierProvider(create: (_) => ThemeProvider(sharedPreference)),
+    ChangeNotifierProvider(create: (_) => LocaleProvider(sharedPreference)),
   ], child: const MyApp()));
 }
 
